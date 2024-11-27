@@ -105,7 +105,7 @@ static int hx711_sample_fetch(const struct device *dev, enum sensor_channel chan
 {
 	int ret = 0;
 	int interrupt_cfg_ret;
-	uint32_t count = 0;
+	int32_t count = 0;
 	int i;
 
 	struct hx711_data *data = dev->data;
@@ -134,7 +134,7 @@ static int hx711_sample_fetch(const struct device *dev, enum sensor_channel chan
 		hx711_cycle(data);
 	}
 
-	count ^= 0x800000;
+	count = (count & 0x7FFFFF) - (count & 0x800000);
 	data->reading = count;
 
 #if defined(CONFIG_HX711_ENABLE_MEDIAN_FILTER) || defined(CONFIG_HX711_ENABLE_EMA_FILTER)
