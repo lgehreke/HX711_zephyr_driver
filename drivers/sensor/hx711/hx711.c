@@ -611,7 +611,7 @@ int hx711_pm_ctrl(const struct device *dev, enum pm_device_action action)
 	case PM_DEVICE_ACTION_RESUME:
 		ret = avia_hx711_power(dev, HX711_POWER_ON);
 		break;
-	case PM_DEVICE_ACTION_TURN_OFF:
+	case PM_DEVICE_ACTION_SUSPEND:
 		ret = avia_hx711_power(dev, HX711_POWER_OFF);
 		break;
 	default:
