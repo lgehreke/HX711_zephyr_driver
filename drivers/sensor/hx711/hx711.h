@@ -32,6 +32,7 @@ enum hx711_attribute {
 
 enum hx711_channel {
 	HX711_SENSOR_CHAN_WEIGHT = SENSOR_CHAN_PRIV_START,
+	HX711_SENSOR_CHAN_RAW    = SENSOR_CHAN_PRIV_START + 1,
 };
 
 enum hx711_gain {
